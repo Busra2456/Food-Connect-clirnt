@@ -12,7 +12,7 @@ const ShowAllData = () => {
     
 
         useEffect(() =>{
-              fetch('http://localhost:15000/food')
+              fetch('http://localhost:15000/foods')
               .then(res => res.json())
               .then(data => setShowAllData(data))
         } ,[])

@@ -11,7 +11,7 @@ const Services = () => {
       
        const [dataLength,setDataLength] = useState(6);
       useEffect(() =>{
-            fetch('http://localhost:15000/food')
+            fetch('http://localhost:15000/foods')
             .then(res => res.json())
             .then(data => setServices(data))
       } ,[])

@@ -12,11 +12,13 @@ import ShowAllData from "../Pages/Services/ShowAllData";
 import PrivateRoute from "./PrivateRoute";
 
 import About from "../Pages/About/About";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:<Main></Main>,
+     errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
             path:"/",
@@ -44,7 +46,7 @@ const router = createBrowserRouter([
             
             {
               path:'/ServiceDetails/:id',
-              loader:({params} ) => fetch(`http://localhost:15000/food/${params.id}`),
+              loader:({params} ) => fetch(`http://localhost:15000/foods/${params.id}`),
               element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
 
             },

@@ -72,9 +72,13 @@ const NavBar = () => {
 
            {
       user?.photoURL 
-      ? <img src={user.photoURL} alt="User" />
+      ?
+       <img src={user.photoURL} alt="User" />
       : <img src={imgUser} ></img>
     }
+
+   
+
          
         </div>
       </div>

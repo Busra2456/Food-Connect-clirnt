@@ -80,7 +80,7 @@ const Booking = () => {
                   }
             
       return (
-             <div>
+      <div>
                   <h2 className="text-5xl">your bookings: {bookings.length} </h2>
 
                   <div className="overflow-x-auto">
@@ -92,11 +92,15 @@ const Booking = () => {
                 <input type="checkbox" className="checkbox" />
               </label>
         </th>
-        
+        <th>Image</th>
+        <th>Service</th>
+        <th>Date</th>
+        <th>Price</th>
+        <th>Status</th>
       </tr>
   
    
-    <div className=""> 
+      
    {
      bookings.map(booking => <BookingsRow
      key={booking._id}
@@ -105,9 +109,7 @@ const Booking = () => {
      handleBookingConfirm ={handleBookingConfirm}
      ></BookingsRow>)
    }
-     
-</div>  
-     
+      
       
     
   

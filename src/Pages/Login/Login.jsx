@@ -5,6 +5,7 @@ import img0 from '../../assets/assets/img0.png'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../Provider/AuthProvider';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+import axios from 'axios';
 
 
 const Login = () => {
@@ -29,14 +30,22 @@ const Login = () => {
             
 
             signIn(email, password)
-            .then((res)=>{
-                  console.log(res.user)
+            .then(result =>{
+                  const loggedInUser=(result.user)
+                  console.log(loggedInUser);
+                  const user = {email};
+
+                
             
              setSuccess('User create Successfully')
-              navigate(location?.state ? location?.state : '/')
-              
+              // navigate(location?.state ? location?.state : '/')
+              //get access token
+              axios.post('http://localhost:15000/jwt',user,{
+                withCredentials:true
+              })
+
               .then(res =>{
-                // console.log(res.data)
+                console.log(res.data)
                 if(res.data.success){
                    navigate(location?.state ? location?.state : '/')
                 }

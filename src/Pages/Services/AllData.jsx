@@ -12,7 +12,7 @@ const AllData = ({allData}) => {
   <img
       src={image}
       
-      className="rounded-xl" />
+      className="rounded-xl w-full h-56" />
       
   </figure>
   <div className="card-body items-center text-center">

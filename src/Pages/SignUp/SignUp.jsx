@@ -18,9 +18,10 @@ const SignUp = () => {
       const handleLogin = event =>{
             event.preventDefault()
             const form = event.target;
-            //  const name = form.name.value;
+            const name = form.name.value;
             const email = form.email.value;
             const password = form.password.value;
+             const photo = form.photo.value
              // console.log(name,email,password)
 
              //reset error and success
@@ -28,7 +29,7 @@ const SignUp = () => {
     setLoginError('');
             
 
-            createUser(email, password)
+            createUser(email, password,name,photo)
             .then((res)=>{
                   console.log(res.user)
             
@@ -62,6 +63,25 @@ const SignUp = () => {
          
              <div className=" w-full  shrink-0 shadow-2xl mb-20 ">
                <form onSubmit={handleLogin} className="bg-linear-to-l from-[#151515] to-[rgba(21,21,21,0)]   w-full p-10 ">
+               
+                <div className="form-control">
+                   <label className="label">
+                     <span className="label-text text-xl text-zinc-800 font-semibold w-full my-2">Name</span>
+                   </label>
+                   <br />
+                  <div className=''>
+                      <input 
+                      type="name"
+                      name='name' 
+                    
+                      placeholder="Name" 
+                      className="
+                      input border-none mb-2 text-zinc-900 text-[11px] bg-zinc-100 w-full p-7 " required />
+                  </div>
+              
+                </div>
+              
+                
                  <div className="form-control">
                    <label className="label">
                      <span className="label-text text-xl text-zinc-800 font-semibold w-full my-2">Email</span>
@@ -99,6 +119,26 @@ const SignUp = () => {
                  </div>
                   
                  </div>
+                
+                 <div className="form-control">
+                   <label className="label">
+                     <span className="label-text text-xl text-zinc-800 font-semibold w-full my-2">Photo URL</span>
+                   </label>
+                   <br />
+                  <div className=''>
+                      <input 
+                      type="text"
+                      name='photo' 
+                    
+                      placeholder="Enter your photo" 
+                      className="
+                      input border-none mb-2 text-zinc-900 text-[11px] bg-zinc-100 w-full p-7 " required />
+                  </div>
+              
+                </div>
+                 
+
+                 
                  <div className="form-control">
                    <button className=" bg-zinc-800 text-white w-full text-[12px] p-3 font-semibold">Register</button>
                  </div>
@@ -110,7 +150,7 @@ const SignUp = () => {
                {
                  success && <p className='text-green-800 text-center pt-4 text-2xl'> {success} </p>
                }
-               <p className='text-center text-xl m-4 pb-4 text-zinc-600 font-semibold'>Already Have an Account <Link className='btn-link text-blue-900 font-semibold' to={'/Register'}>Login</Link> </p>
+               <p className='text-center text-xl m-4 pb-4 text-zinc-600 font-semibold'>Already Have an Account <Link className='btn-link text-blue-900 font-semibold' to={'/Login'}>Login</Link> </p>
               </div>
          
                

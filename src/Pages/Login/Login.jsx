@@ -4,12 +4,12 @@ import img0 from '../../assets/assets/img0.png'
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../Provider/AuthProvider';
-import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from 'react-icons/fa';
 import axios from 'axios';
 
 
 const Login = () => {
-      const { signIn,signInGoogle} = useContext(AuthContext)  
+      const { signIn,signInGoogle,signInGithub } = useContext(AuthContext)  
       const [success,setSuccess] = useState('');
   const [loginError,setLoginError] = useState('');
   const [showPassword,setShowPassword] = useState(false);
@@ -40,7 +40,7 @@ const Login = () => {
              setSuccess('User create Successfully')
               // navigate(location?.state ? location?.state : '/')
               //get access token
-              axios.post('http://localhost:15000/jwt',user,{
+              axios.post('https://food-connect-server-one.vercel.app/jwt',user,{
                 withCredentials:true
               })
 
@@ -69,6 +69,17 @@ const Login = () => {
     })
 
     }
+
+     const handleGithub = () =>{
+      signInGithub ()
+      .then(result=>{
+        console.log(result.user)
+      })
+      .catch(error=>{
+        console.error(error)
+      })
+  
+      }
 
       return (
            
@@ -130,11 +141,13 @@ const Login = () => {
       {
         success && <p className='text-green-800 text-center pt-4 text-2xl'> {success} </p>
       }
-      <p className='text-center text-xl m-4 pb-4 text-zinc-600 font-semibold'>Do not have an account <Link className='btn-link text-blue-900 font-semibold' to={'/Register'}>Register</Link> </p>
+      <p className='text-center text-xl  pb-6 text-zinc-600 font-semibold'>Do not have an account <Link className='btn-link text-blue-900 font-semibold' to={'/Register'}>Register</Link> </p>
      </div>
 
-     <div className=' flex ml-16'>
+     <div className='flex justify-center '>
       <p><button className="btn btn-link m-3 text-black text-2xl " onClick={handleSignInGoogle} > <p><FaGoogle className='text-black'></FaGoogle></p> Google</button></p>
+
+      <p><button className="btn btn-link m-3 text-2xl  text-black" onClick={handleGithub} > <p><FaGithub className='text-black'></FaGithub></p> Github</button></p>
 
 
       </div>

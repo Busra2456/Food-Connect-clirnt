@@ -18,6 +18,6 @@ createRoot(document.getElementById('root')).render(
       </HelmetProvider>
       
      </AuthProvider>
-  </StrictMode>,
+  </StrictMode>
   </div>
 )

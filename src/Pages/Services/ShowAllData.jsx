@@ -2,17 +2,14 @@ import { useEffect, useState } from "react";
 
 import AllData from "./AllData";
 import logo from '../../assets/assets/img22.png'
+
 const ShowAllData = () => {
-
-
-
- 
+  
    const [showAllData, setShowAllData] = useState([]);
         
     
-
         useEffect(() =>{
-              fetch('http://localhost:15000/foods')
+              fetch('https://food-connect-server-one.vercel.app/foods')
               .then(res => res.json())
               .then(data => setShowAllData(data))
         } ,[])

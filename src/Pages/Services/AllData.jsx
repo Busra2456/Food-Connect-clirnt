@@ -19,9 +19,9 @@ const AllData = ({allData}) => {
     <h2 className="card-title text-4xl text-zinc-700 "> {estate_title} </h2>
     <div className="text-zinc-400 text-[13px]">
       {
-         description.length > 60 ? <p> {description.slice(0,60) }  </p> : <p>{description} </p>
+         description.length > 60 ? <p> {description.slice(0,60) }  </p> : <p>{description} </p>}
         
-}<Link to={`/ServiceDetails/${_id}`}  className="text-blue-800 text-[12px]" >
+<Link  to={`/ServiceDetail/${_id}`}  className="text-blue-800 text-[12px]" > 
 Read more...</Link> 
 </div>
 
@@ -35,7 +35,8 @@ Read more...</Link>
       
       className="text-center rounded-ss-2xl  border-black border-b-4 btn  bg-linear-to-r from-[#151515] to-[rgba(21,21,21,0)]
        text-white w-full p-6 font-bold rounded-sm text-2xl mt-3"> <Link
-      //   to={`/ServiceDetail/${_id}`}
+        to={`/ServiceDetails/${_id}`}
+    
         >
         Buy Now
         </Link> 

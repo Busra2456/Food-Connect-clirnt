@@ -14,6 +14,7 @@ import PrivateRoute from "./PrivateRoute";
 import About from "../Pages/About/About";
 import ErrorPage from "../ErrorPage/ErrorPage";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,26 +40,27 @@ const router = createBrowserRouter([
 
             },
             {path:'/ShowAllData ',
-             element:<ShowAllData></ShowAllData>
+             element:<ShowAllData></ShowAllData>,
+              
 
             },
 
             
             {
               path:'/ServiceDetails/:id',
-              loader:({params} ) => fetch(`http://localhost:15000/foods/${params.id}`),
+              loader:({params} ) => fetch(`https://food-connect-server-one.vercel.app/foods/${params.id}`),
               element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
 
             },
             {
               path:'/ServiceDetail/:id',
-              element:<ServiceDetail></ServiceDetail>
+                loader:({params} ) => fetch(`https://food-connect-server-one.vercel.app/foods/${params.id}`),
+              element:<PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>
             },
             {
               path:'/booking',
               element:<PrivateRoute><Booking></Booking></PrivateRoute>
             }
-
     ]
   },
 ]);

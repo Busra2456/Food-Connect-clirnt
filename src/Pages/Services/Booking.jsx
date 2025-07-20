@@ -13,7 +13,7 @@ const Booking = () => {
       const [bookings,setBookings] = useState([]);
       
 
-      const url = `http://localhost:15000/bookingFood?email=${user?.email}`;
+      const url = `https://food-connect-server-one.vercel.app/bookingFood?email=${user?.email}`;
 
 
 
@@ -39,7 +39,7 @@ const Booking = () => {
        const handleDelete = id => {
                   const proceed = confirm('Are You Sure you Want to delete');
                   if(proceed){
-                        fetch(`http://localhost:15000/bookingFood/${id}`, {
+                        fetch(`https://food-connect-server-one.vercel.app/bookingFood/${id}`, {
                               method: 'DELETE'
             })
             .then(res =>res.json())
@@ -56,7 +56,7 @@ const Booking = () => {
             }
 
             const handleBookingConfirm = id => {
-                fetch(`http://localhost:15000/bookingFood/${id}`, { method: 'PATCH',
+                fetch(`https://food-connect-server-one.vercel.app/bookingFood/${id}`, { method: 'PATCH',
                   headers:{
                         'content-type' : 'application/json'
 
@@ -109,9 +109,7 @@ const Booking = () => {
      handleBookingConfirm ={handleBookingConfirm}
      ></BookingsRow>)
    }
-      
-      
-    
+  
   
       </thead>
   </table>

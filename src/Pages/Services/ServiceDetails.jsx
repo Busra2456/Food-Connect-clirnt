@@ -30,7 +30,7 @@ const ServiceDetails = () => {
                   price: price
             } 
             console.log(booking);
-            fetch('http://localhost:15000/bookingFood',{
+            fetch('https://food-connect-server-one.vercel.app/bookingFood',{
                   method: 'POST',
                   headers:{
                         'content-type' : 'application/json'

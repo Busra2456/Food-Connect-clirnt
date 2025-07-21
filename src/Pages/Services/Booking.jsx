@@ -27,6 +27,9 @@ const Booking = () => {
             .then(res =>{
                   setBookings(res.data)
             })
+            .catch(error => {
+  console.error( error);
+});
 
             // fetch(url
             //       // ,

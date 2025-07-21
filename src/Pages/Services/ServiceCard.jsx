@@ -39,17 +39,18 @@ Read more...</Link>
             </div>
 
 <div className="card-actions w-full text-center ">
-      <button
+     
+    <Link
+        to={`/ServiceDetails/${_id}`}
+        >  <button
        
       
       className="text-center rounded-ss-2xl  border-black border-b-4 btn  bg-linear-to-r from-[#151515] to-[rgba(21,21,21,0)]
-       text-white w-full p-6 font-bold rounded-sm text-2xl mt-3"> <Link
-        to={`/ServiceDetails/${_id}`}
-        >
+       text-white w-full p-6 font-bold rounded-sm text-2xl mt-3"> 
          View Details
-        </Link> 
+       
         </button>
-  
+   </Link> 
     
   </div>
    </div>
